@@ -49,7 +49,7 @@
 
     - name: printing output
       ansible.builtin.debug:
-        msg: "Register variable is {{out}}"
+        msg: "{{out}}"
 
 
 
