@@ -49,7 +49,7 @@
 
     - name: Set a variable
       ansible.builtin.set_fact:
-      UPTIME: "{{out}}"
+        UPTIME: "{{out}}"
 
     - name: printing output
       ansible.builtin.debug:
