@@ -11,3 +11,15 @@
     - name: Printing 2nd Variable
       debug:
         msg: "URL = {{URL}}"
+
+ ## ---> OUTPUT
+#TASK [Printing 1st Variable] ***********************************************************************
+#ok: [172.31.58.238] => {
+#    "msg": "URL = yahoo.com"
+#}
+#
+#TASK [Printing 2nd Variable] ***********************************************************************
+#ok: [172.31.58.238] => {
+#    "msg": "URL = google.com"
+#}
+
