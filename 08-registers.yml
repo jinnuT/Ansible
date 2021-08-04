@@ -49,7 +49,7 @@
 
     - name: printing out
       ansible.builtin.debug:
-        msg: "uptime is {{out}}"
+        msg: "out = {{out}}"
 
 
 
