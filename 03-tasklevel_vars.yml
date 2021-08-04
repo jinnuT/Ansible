@@ -1,0 +1,13 @@
+- name: Demo on Task-Level Variables
+  hosts: all
+  vars:
+    URL: google.com
+  tasks:
+    - name: Printing 1st Variable
+      debug:
+        msg: "URL = {{URL}}"
+    - name: Printing 2nd Variable
+      debug:
+        msg: "URL = {{URL}}"
+      vars:
+        URL: yahoo.com

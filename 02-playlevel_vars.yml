@@ -2,11 +2,7 @@
   hosts: all
   vars:
     URL: google.com
-    LRU: yahoo.com
   tasks:
     - name: Printing 1st Variable
       debug:
         msg: "URL = {{URL}}"
-    - name: Printing 2nd Variable
-      debug:
-        msg: "LRU = {{LRU}}"
