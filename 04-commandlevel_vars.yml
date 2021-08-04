@@ -12,5 +12,9 @@
       vars:
         URL: pong.com
 
+## ansible-playbook -i inventory.txt -k -u centos 04-commandlevel_vars.yml -e URL=LOCAL.com
+
+## This will replace everything with URL LOCAL.com
+
 
 
