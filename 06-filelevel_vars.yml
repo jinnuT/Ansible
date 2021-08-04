@@ -1,0 +1,36 @@
+- name: Demo on Command-level Variables
+  hosts: all
+  vars:
+    URL: ping.com
+  tasks:
+    - name: Printing 1st Varible
+      debug:
+        msg: "URL = {{URL}}"
+    - name: Printing 2nd Varibles
+      debug:
+        msg: "URL = {{URL}}"
+      vars:
+        URL: pong.com
+
+##-----------------------------------------------
+
+- name: Demo on Inventory-level Variables
+  hosts: all
+  tasks:
+    - name: Print a Variable
+      ansible.builtin.debug:
+        msg: "URL = {{URL}}"
+
+- name: Demo on File-level Variables
+  hosts: all
+  vars_file:
+    - varsfile.yml
+  tasks:
+    - name: Print a Variable
+      ansible.builtin.debug:
+        msg: "URL = {{URL}}"
+
+
+
+
+
