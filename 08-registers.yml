@@ -47,9 +47,6 @@
       ansible.buitin.shell: uptime
       register: out
 
-- name: Printing registered variable
-  hosts: all
-  tasks:
     - name: printing out
       ansible.builtin.debug:
         msg: "uptime is {{out}}"
