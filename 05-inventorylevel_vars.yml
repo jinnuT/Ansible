@@ -17,9 +17,9 @@
 - name: Demo on Inventory-level Variables
   hosts: all
   tasks:
-    name: Print a Variable
-    ansible.builtin.debug:
-      msg: "URL = {{URL}}"
+    - name: Print a Variable
+      ansible.builtin.debug:
+        msg: "URL = {{URL}}"
 
 
 
