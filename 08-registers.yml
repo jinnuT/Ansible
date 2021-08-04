@@ -47,12 +47,9 @@
       ansible.builtin.shell: uptime
       register: out
 
-- name: Printing Register variables
-  hosts: all
-  tasks:
     - name: printing output
       ansible.builtin.debug:
-        msg: "{{out.delta}}"
+        msg: "{{out}}"
 
 
 
