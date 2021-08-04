@@ -51,6 +51,7 @@
   hosts: all
   tasks:
     - name: printing out
+      ansible.builtin.debug:
         msg: "uptime is {{out}}"
 
 
