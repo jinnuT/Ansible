@@ -1,0 +1,65 @@
+- name: Demo on Command-level Variables
+  hosts: all
+  vars:
+    URL: ping.com
+  tasks:
+    - name: Printing 1st Varible
+      debug:
+        msg: "URL = {{URL}}"
+    - name: Printing 2nd Varibles
+      debug:
+        msg: "URL = {{URL}}"
+      vars:
+        URL: pong.com
+
+##-----------------------------------------------
+
+- name: Demo on Inventory-level Variables
+  hosts: all
+  tasks:
+    - name: Print a Variable
+      ansible.builtin.debug:
+        msg: "URL = {{URL}}"
+
+- name: Demo on File-level Variables
+  hosts: all
+  vars_files:
+    - varsfile.yml
+  tasks:
+    - name: Print a Variable
+      ansible.builtin.debug:
+        msg: "URL = {{URL}}"
+
+##------------------------------------------
+
+- name: Democ on predefined variables - Facts
+  hosts: all
+  tasks:
+    - name: print a fact varible
+      ansible.builtin.debug:
+        msg: "Hostname = {{ansible_fqdn}}"
+        ## --Fully Qualified Domain Name
+
+- name: Demo on Register variables
+  hosts: all
+  tasks:
+    - name: Run uptime command
+      ansible.builtin.shell: uptime
+      register: out
+
+    - name: Set a variable
+      ansible.builtin.set_fact:
+        UPTIME: "{{out}}"
+
+    - name: printing output
+      ansible.builtin.debug:
+        msg: "{{UPTIME}}"
+
+- name: Demo on vars from Roles
+  hosts: all
+  roles:
+    - name: demo
+
+
+
+
