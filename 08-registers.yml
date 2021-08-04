@@ -44,12 +44,12 @@
   hosts: all
   tasks:
     - name: Run uptime command
-      ansible.buitin.shell: uptime
+      ansible.builtin.shell: uptime
       register: out
 
     - name: printing output
       ansible.builtin.debug:
-        msg: "{{out}}"
+        msg: "Register variable is {{out}}"
 
 
 
