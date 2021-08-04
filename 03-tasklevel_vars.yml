@@ -3,11 +3,11 @@
   vars:
     URL: google.com
   tasks:
-      vars:
-        URL: yahoo.com
     - name: Printing 1st Variable
       debug:
         msg: "URL = {{URL}}"
+      vars:
+        URL: yahoo.com
     - name: Printing 2nd Variable
       debug:
         msg: "URL = {{URL}}"
