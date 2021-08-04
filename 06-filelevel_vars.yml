@@ -23,7 +23,7 @@
 
 - name: Demo on File-level Variables
   hosts: all
-  vars_file:
+  vars_files:
     - varsfile.yml
   tasks:
     - name: Print a Variable
