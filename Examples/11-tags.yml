@@ -1,0 +1,9 @@
+- name: Demo on Tags
+  hosts: localhost
+  tasks:
+    - name: Ubuntu Task
+      debug:
+        msg: Ubuntu Task
+    - name: Centos Task
+      debug:
+        msg: Centos Task
