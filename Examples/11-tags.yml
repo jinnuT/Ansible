@@ -5,12 +5,12 @@
       debug:
         msg: Ubuntu Task
       tags:
-        - name: ubuntu
-        - name: debian
+        - ubuntu
+        - debian
 
     - name: Centos Task
       debug:
         msg: Centos Task
       tags:
-        - name: centos
-        - name: redhat
+        - centos
+        - redhat
