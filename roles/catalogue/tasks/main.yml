@@ -1,0 +1,10 @@
+- name: Download and Extract Catalogue Content
+  include_role:
+    name: common
+    tasks_from: nodejs.yml
+
+- name: Copy the Extracted catalogue Content
+  ansible.builtin.copy:
+    src: /tmp/frontend-main/
+    dest: /home/roboshop/catalogue/
+    remote_src: yes

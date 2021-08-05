@@ -13,7 +13,7 @@
     name: common
     tasks_from: download
 
-- name: Copy the Extracted Content
+- name: Copy the Extracted Frontend Content
   ansible.builtin.copy:
     src: /tmp/frontend-main/static/
     dest: /usr/share/nginx/html/

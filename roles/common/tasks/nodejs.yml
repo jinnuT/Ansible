@@ -1,0 +1,15 @@
+- name: Install NodeJS
+  ansible.builtin.yum:
+    name:
+      - nodejs
+      - make
+      - gcc-c++
+    state: present
+
+- name: Add ROboShop Application User
+  ansible.builtin.user:
+    name: roboshop
+
+- name: Bypassing download from Github
+  include_tasks:
+    file: download.yml
