@@ -14,3 +14,21 @@
       tags:
         - centos
         - redhat
+
+- name: Demo on Ubuntu Task Play-Level
+  hosts: localhost
+  tags:
+    - ubuntu
+  tasks:
+    - name: Ubuntu Task
+      debug:
+        msg: Ubuntu Ubuntu
+
+- name: Demo on centOS Task Play-Level
+  hosts: localhost
+  tags:
+    - centOS
+  tasks:
+    - name: centOS Task
+      debug:
+        msg: centOS Task
