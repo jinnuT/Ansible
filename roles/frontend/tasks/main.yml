@@ -13,3 +13,8 @@
     src: https://github.com/roboshop-devops-project/frontend/archive/main.zip
     dest: /usr/share/nginx
     remote_src: yes
+
+- name: Create a directory html
+  ansible.builtin.file:
+    path: /usr/share/nginx/html
+    state: directory
