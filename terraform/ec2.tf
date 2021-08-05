@@ -33,7 +33,7 @@ locals {
 
 //COMPONENTS = ["frontend","catalogue","user","mongodb","redis","rabbitmq","mysql","payment","shipping","cart"]
 
-//resource "local_file" "foo" {
-//  content     = "[FRONTEND]\n ${aws_spot_instance_request.cheap_worker.*.private_ip[0]}"
-//  filename    = "/tmp/inv-roboshop"
-//}
+resource "local_file" "foo" {
+  content     = "[FRONTEND]\n ${aws_spot_instance_request.cheap_worker.*.private_ip[0]}"
+  filename    = "/tmp/inv-roboshop"
+}
