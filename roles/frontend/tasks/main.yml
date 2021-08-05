@@ -2,4 +2,14 @@
   ansible.builtin.yum:
     name: nginx
     state: installed
-  
+
+- name: Remove Old Contents Inside Nginx
+  ansible.builtin.file:
+    path: /usr/share/nginx/html
+    state: absent
+
+- name: Unarchive a file that needs to be downloaded (added in 2.0)
+  ansible.builtin.unarchive:
+    src: https://github.com/roboshop-devops-project/frontend/archive/main.zip
+    dest:  /usr/share/nginx/html
+    remote_src: yes
