@@ -5,6 +5,6 @@
 
 - name: Copy the Extracted catalogue Content
   ansible.builtin.copy:
-    src: /tmp/frontend-main/
+    src: /tmp/catalogue-main/
     dest: /home/roboshop/catalogue/
     remote_src: yes
