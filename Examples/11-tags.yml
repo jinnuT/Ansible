@@ -4,6 +4,13 @@
     - name: Ubuntu Task
       debug:
         msg: Ubuntu Task
+      tags:
+        - name: ubuntu
+        - name: debian
+
     - name: Centos Task
       debug:
         msg: Centos Task
+      tags:
+        - name: centos
+        - name: redhat
