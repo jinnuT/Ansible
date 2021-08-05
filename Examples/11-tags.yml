@@ -12,7 +12,7 @@
       debug:
         msg: Centos Task
       tags:
-        - centos
+        - centOS
         - redhat
 
 - name: Demo on Ubuntu Task Play-Level
