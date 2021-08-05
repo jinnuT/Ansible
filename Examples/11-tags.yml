@@ -31,4 +31,4 @@
   tasks:
     - name: centOS Task
       debug:
-        msg: centOS Task
+        msg: centOS centOS
