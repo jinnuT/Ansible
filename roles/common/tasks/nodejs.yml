@@ -30,9 +30,9 @@
 
 - name: Update SystemD Configuration
   ansible.builtin.copy:
-    src: systemd.service
+    src: /home/roboshop/catalogue/systemd.service
     dest: /etc/systemd/system/catalogue.service
-  become_user: roboshop
+    remote_src: yes
 
 - name: Restart Catalogue Service
   ansible.builtin.systemd:
