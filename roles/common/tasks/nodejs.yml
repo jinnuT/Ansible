@@ -32,6 +32,7 @@
   ansible.builtin.copy:
     src: /home/roboshop/catalogue/systemd.service
     dest: /home/roboshop/catalogue/
+    remote_src: yes
     owner: root
     group: root
 
