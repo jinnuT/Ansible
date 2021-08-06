@@ -22,7 +22,7 @@
     owner: roboshop
     group: roboshop
 
-- name: Install catalogue dependancy NPM .
+- name: Install catalogue Dependencies
   community.general.npm:
     path: /home/roboshop/catalogue
     state: latest
