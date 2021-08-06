@@ -6,7 +6,7 @@
       - gcc-c++
     state: present
 
-- name: Add ROboShop Application User
+- name: Add RoboShop Application User
   ansible.builtin.user:
     name: roboshop
 
@@ -27,3 +27,15 @@
     path: /home/roboshop/catalogue
     state: latest
   become_user: roboshop
+
+- name: Update SystemD file
+  ansible.builtin.copy:
+    src: systemd.service
+    dest: /etc/systemd/system/catalogue.service
+
+- name: Restart Catalogue Service
+  ansible.builtin.systemd:
+    name: catalogue
+    state: restarted
+    enabled: yes
+    daemon-reload: yes
