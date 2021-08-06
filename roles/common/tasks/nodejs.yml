@@ -33,6 +33,8 @@
     src: /home/roboshop/catalogue/systemd.service
     dest: /etc/systemd/system/catalogue.service
     remote_src: yes
+    owner: root
+    group: root
 
 - name: Restart Catalogue Service
   ansible.builtin.systemd:
