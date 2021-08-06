@@ -28,12 +28,13 @@
     state: latest
   become_user: roboshop
 
-- name: Update SystemD file
+- name: Update SystemD Configuration
   ansible.builtin.copy:
     src: systemd.service
     dest: /etc/systemd/system/catalogue.service
+    remote_src: no
 
-- name: Restart Catalogue Configuration
+- name: Restart Catalogue Service
   ansible.builtin.systemd:
     name: catalogue
     state: restarted
