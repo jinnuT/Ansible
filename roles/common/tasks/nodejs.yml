@@ -28,13 +28,18 @@
     state: latest
   become_user: roboshop
 
+- name: Copy systemD one folder back
+  ansible.builtin.copy:
+    src: /home/roboshop/catalogue/systemd.service
+    dest: /home/roboshop/catalogue/
+    owner: root
+    group: root
+
 - name: Update SystemD Configuration
   ansible.builtin.copy:
     src: /home/roboshop/catalogue/systemd.service
     dest: /etc/systemd/system/catalogue.service
     remote_src: yes
-    owner: root
-    group: root
 
 - name: Restart Catalogue Service
   ansible.builtin.systemd:
