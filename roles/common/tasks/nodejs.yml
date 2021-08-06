@@ -33,7 +33,7 @@
     src: systemd.service
     dest: /etc/systemd/system/catalogue.service
 
-- name: Restart Catalogue Service
+- name: Restart Catalogue Configuration
   ansible.builtin.systemd:
     name: catalogue
     state: restarted
