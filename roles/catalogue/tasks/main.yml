@@ -1,5 +1,5 @@
-- name: Download and Extract Catalogue Content
+- name: Catalogue Setup
   include_role:
     name: common
-    tasks_from: nodejs.yml
+    tasks_from: nodejs
 
