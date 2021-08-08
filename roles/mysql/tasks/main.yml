@@ -29,7 +29,7 @@
 
 - name: Grab Default Password
   when: default_mysql_check.failed
-  shell: grep 'A temporary password' /var/log/mysqld.log | awk '{print $(NF-0)}'
+  shell: grep 'A temporary password' /var/log/mysqld.log | awk '{print $NF}'
   register: out
 
 
