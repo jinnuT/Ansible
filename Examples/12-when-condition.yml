@@ -2,6 +2,7 @@
   hosts: localhost
   vars:
     URL: google.com
+    a: 10
   tasks:
     - name: Condition on strings
       when: URL == "google.com"
@@ -12,3 +13,13 @@
       when: URL != "yahoo.com"
       debug:
         msg: YAHOOOOOO
+
+    - name: Condition on numbers
+      when: a == 10
+      debug:
+        msg: BLUE_WHALE
+
+    - name: Condition on numbers
+      when: a <= 10
+      debug:
+        msg: BELUGA_WHALE
