@@ -27,7 +27,7 @@
 
 - name: Update SystemD Configuration
   copy:
-    src: systemd.service
+    src: cat_systemd.service
     dest: /etc/systemd/system/catalogue.service
 
 - name: Restart catalogue Service
