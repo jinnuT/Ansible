@@ -2,10 +2,10 @@
   copy:
     src: /home/centos/Ansible/roles/{{COMPONENT}}/files/systemd.service
     dest: /etc/systemd/system/{{COMPONENT}}.service
+  notify: Restart Service -- Handler
 
 - name: Restart {{COMPONENT}} Service
   systemd:
     name: "{{COMPONENT}}"
     state: restarted
     enabled: yes
-    daemon_reload: yes
