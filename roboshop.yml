@@ -46,3 +46,11 @@
   tags: mysql
   roles:
     - name: mysql
+    
+
+- name: RoboShop Shipping Setup
+  hosts: SHIPPING
+  become: yes
+  tags: shipping
+  roles:
+    - name: shipping
