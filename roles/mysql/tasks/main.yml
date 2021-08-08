@@ -1,6 +1,6 @@
 - name: Setup MySQL Repo file
   ansible.builtin.copy:
-    src: mysql.repo
+    src: /home/centos/Ansible/roles/mysql/file/mysql.repo
     dest: /etc/yum.repos.d/mysql.repo
 
 - name: Install MySQL Server
