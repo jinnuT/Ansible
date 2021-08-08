@@ -5,16 +5,16 @@
 
 - name: Install MySQL Server
   yum:
-    name: [ "mysql-community-server" , "MySQL-python" ]
+    name: [ "mysql-community-server", "MySQL-python" ]
     state: present
 
 - name: Start MySQL Service
-  ansible.builtin.systemd:
+  systemd:
     name: mysqld
     state: started
     enabled: yes
 
-- name: Check the Default Password
+- name: Check the default password
   community.mysql.mysql_query:
     query: show databases
     login_password: RoboShop@1
