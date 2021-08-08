@@ -33,9 +33,9 @@
   register: out
 
 
-- name: Reset MySQL Password
-  when: default_mysql_check.failed
-  shell: echo "ALTER USER 'root'@'localhost' IDENTIFIED BY 'RoboShop@1';" | mysql --connect-expired-password -uroot -p{{out.stdout}}
+#- name: Reset MySQL Password
+#  when: default_mysql_check.failed
+#  shell: echo "ALTER USER 'root'@'localhost' IDENTIFIED BY 'RoboShop@1';" | mysql --connect-expired-password -uroot -p{{out.stdout}}
 
 
 
