@@ -32,8 +32,16 @@
     msg: "{{default_mysql_check}}"
 
 - name: Grab Default Password
+  when: default_mysql_check.failed
   shell: grep 'A temporary password' /var/log/mysqld.log | awk '{print $(NF-0)}'
   register: out
+
+- name: Print
+  debug:
+    msg: "{{out}}"
+
+#- name: Reset MySQL Password
+#  shell: ALTER USER 'root'@'localhost' IDENTIFIED BY 'RoboShop@1';" | mysql --connect-expired-password -uroot -p${DEFAULT_PASSWORD}
 
 
 
