@@ -18,7 +18,7 @@
   community.mysql.mysql_query:
     query: show databases
     login_password: RoboShop@1
-    login_user: root
+    login_user: uroot
   register: default_mysql_check
   ignore_errors: yes
 
@@ -35,7 +35,7 @@
 
 - name: Reset MySQL Password
   #when: default_mysql_check.failed
-  shell: echo "ALTER USER 'root'@'localhost' IDENTIFIED BY 'RoboShop@1';" | mysql --connect-expired-password -root -p{{out.stdout}}
+  shell: echo "ALTER USER 'root'@'localhost' IDENTIFIED BY 'RoboShop@1';" | mysql --connect-expired-password -uroot -p{{out.stdout}}
 
 
 
