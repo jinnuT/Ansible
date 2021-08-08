@@ -20,6 +20,6 @@
         msg: BLUE_WHALE
 
     - name: Condition on numbers
-      when: a <= 10
+      when: a < 10
       debug:
         msg: BELUGA_WHALE
