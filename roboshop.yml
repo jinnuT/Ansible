@@ -60,3 +60,10 @@
   tags: rabbitmq
   roles:
     - name: rabbitmq
+
+- name: RoboShop Payment Setup
+  hosts: PAYMENT
+  become: yes
+  tags: payment
+  roles:
+    - name: payment

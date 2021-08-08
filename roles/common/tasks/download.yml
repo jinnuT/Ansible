@@ -2,6 +2,7 @@
 - name: Add RoboShop Application User
   ansible.builtin.user:
     name: roboshop
+  register: app_user
 
 - name: Again Bypassing Download from github
   include_tasks:
