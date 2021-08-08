@@ -15,9 +15,17 @@
     enabled: yes
 
 - name: Check the Default Password
-  shell: echo "show databases;" | mysql -uroot -pRoboShop@1
+  community.mysql.mysql_query:
+    query: show databases
+    login_user: root
+    login_password: RoboShop@1
   register: default_mysql_check
   ignore_errors: yes
+
+#- name: Check the Default Password
+#  shell: echo "show databases;" | mysql -uroot -pRoboShop@1
+#  register: default_mysql_check
+#  ignore_errors: yes
   
 - name: Print
   debug:
