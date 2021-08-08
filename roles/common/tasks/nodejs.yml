@@ -27,7 +27,7 @@
 
 - name: Update SystemD Configuration
   copy:
-    src: {{COMPONENT}}_systemd.service
+    src: {{COMPONENT}}/file/systemd.service
     dest: /etc/systemd/system/{{COMPONENT}}.service
 
 - name: Restart {{COMPONENT}} Service
