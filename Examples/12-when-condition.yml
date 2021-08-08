@@ -34,3 +34,8 @@
       when: not ACTION
       debug:
         msg: SAMLL_MOUTH
+
+    - name: Run if variable B is defined
+      when: B is defined
+      debug:
+        msg: RAINBOW_TROUT
