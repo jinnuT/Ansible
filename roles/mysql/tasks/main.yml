@@ -42,4 +42,9 @@
     login_user: root
   ignore_errors: yes
 
+- name: Download and Extract Frontend Content
+  include_role:
+    name: common
+    tasks_from: download
+
 
