@@ -4,6 +4,7 @@
     URL: google.com
     a: 10
     ACTION: false
+    B:
   tasks:
     - name: Condition on strings
       when: URL == "google.com"
