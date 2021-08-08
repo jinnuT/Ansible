@@ -1,2 +1,11 @@
+
+- name: Copy HostName Script
+  copy:
+    src: set-hostname.sh
+    dest: /bin/set-hostname
+    mode: u+rwx,g+rx,o+rx
+    #mode: 0755
+# user-rwx(7) , group-rx(5) , others-rx(5)
+
 - name: Setup HostName
   shell: set-hostname {{COMPONENT}}
