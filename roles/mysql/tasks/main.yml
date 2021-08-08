@@ -1,0 +1,15 @@
+- name: Setup MySQL Repo file
+  copy:
+    src: mysql.repo
+    dest: /etc/yum.repos.d/mysql.repo
+
+- name: Install MySQL Server
+  yum:
+    name: mysql-community-server
+    state: present
+
+- name: Start MySQL Service
+  systemd:
+    name: mysql
+    state: started
+    enabled: yes
