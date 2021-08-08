@@ -46,7 +46,6 @@
   tags: mysql
   roles:
     - name: mysql
-    
 
 - name: RoboShop Shipping Setup
   hosts: SHIPPING
@@ -54,3 +53,10 @@
   tags: shipping
   roles:
     - name: shipping
+
+- name: RoboShop RabbitMQ Setup
+  hosts: RABBITMQ
+  become: yes
+  tags: rabbitmq
+  roles:
+    - name: rabbitmq
