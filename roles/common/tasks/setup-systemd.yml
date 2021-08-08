@@ -1,6 +1,6 @@
 - name: Update SystemD Configuration
   copy:
-    src: /home/centos/Ansible/roles/{{COMPONENT}}/file/systemd.service
+    src: /home/centos/Ansible/roles/{{COMPONENT}}/files/systemd.service
     dest: /etc/systemd/system/{{COMPONENT}}.service
 
 - name: Restart {{COMPONENT}} Service
