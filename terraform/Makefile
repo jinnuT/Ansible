@@ -1,5 +1,5 @@
 help:
-	@fgrep -h "##" $(MAKEFILE_LIST) | fgrep -v fgrep | sed -e 's/\\$$//' -e 's/clean //' | sed -e 's/##//'
+	@fgrep -h "##" $(MAKEFILE_LIST) | fgrep -v fgrep | sed -e 's/\\$$//' -e 's/clean / /' | sed -e 's/##//'
 
 clean:
 	@rm -rf .terraform*
