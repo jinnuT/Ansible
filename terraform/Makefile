@@ -4,7 +4,7 @@ help:
 clean:
 	@rm -rf .terraform*
 
-dev-apply: 		clean		## Create Infra for Dev Env
+dev-apply: 	clean		## Create Infra for Dev Env
 	@terraform init -backend-config=environments/dev-backend.tfvars -no-color
 	@terraform apply -auto-approve -var-file=environments/dev.tfvars -no-color
 
