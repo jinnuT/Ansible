@@ -1,6 +1,6 @@
 - name: Update SystemD Configuration
   template:
-    src: /home/centos/Ansible/roles/{{COMPONENT}}/files/systemd.service
+    src: systemd.service
     dest: /etc/systemd/system/{{COMPONENT}}.service
   notify: Restart Service -- Handler
 
