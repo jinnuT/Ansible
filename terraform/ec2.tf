@@ -7,7 +7,7 @@ resource "aws_spot_instance_request" "cheap_worker" {
   wait_for_fulfillment            = true
 
   tags                            = {
-    Name                          = element(var.COMPONENTS, count.index)
+    Name                          = "${element(var.COMPONENTS, count.index)}-${var.ENV}"
   }
 }
 
@@ -21,7 +21,7 @@ resource "aws_ec2_tag" "name-tag" {
 resource "aws_route53_record" "records" {
   count                           = local.LENGTH
   zone_id                         = "Z0821647W15DL3WPSKX8"
-  name                            = element(var.COMPONENTS,count.index)
+  name                            = "${element(var.COMPONENTS,count.index)}-${var.ENV}"
   type                            = "A"
   ttl                             = "300"
   records                         = [element(aws_spot_instance_request.cheap_worker.*.private_ip, count.index)]
@@ -35,5 +35,5 @@ locals {
 
 resource "local_file" "inventory-file" {
   content     =   "[FRONTEND]\n${aws_spot_instance_request.cheap_worker.*.private_ip[0]}\n[CATALOGUE]\n${aws_spot_instance_request.cheap_worker.*.private_ip[1]}\n[USER]\n${aws_spot_instance_request.cheap_worker.*.private_ip[2]}\n[MONGODB]\n${aws_spot_instance_request.cheap_worker.*.private_ip[3]}\n[REDIS]\n${aws_spot_instance_request.cheap_worker.*.private_ip[4]}\n[RABBITMQ]\n${aws_spot_instance_request.cheap_worker.*.private_ip[5]}\n[MYSQL]\n${aws_spot_instance_request.cheap_worker.*.private_ip[6]}\n[PAYMENT]\n${aws_spot_instance_request.cheap_worker.*.private_ip[7]}\n[SHIPPING]\n${aws_spot_instance_request.cheap_worker.*.private_ip[8]}\n[CART]\n${aws_spot_instance_request.cheap_worker.*.private_ip[9]}"
-  filename    =   "/tmp/inv-roboshop"
+  filename    =   "/tmp/inv-roboshop-${var.ENV}"
 }
