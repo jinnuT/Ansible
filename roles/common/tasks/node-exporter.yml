@@ -3,26 +3,23 @@
     path: /opt/node_exporter
   register: out
 
-- name: Print
-  debug:
-    msg: "{{out}}"
+- name: Install Node Exporter
+  when: not out.stat.exists
+  block:
+    - name: Download Prometheus Archieve
+      ansible.builtin.unarchive:
+        src: "{{ NODE_EXPORTER_URL }}"
+        dest: /tmp
+        remote_src: yes
 
-- name: Print
-  debug:
-    msg: "{{ NODE_EXPORTER_URL | split('/') | last | regex_replace('.tar.gz', '') }}"
+    - name: Copy Node Exporter to /opt
+      copy:
+        src: /tmp/{{ NODE_EXPORTER_URL | split('/') | last | regex_replace('.tar.gz', '') }}
+        dest: /opt/node_exporter
+        remote_src: yes
 
 
-#- name: Download Prometheus Archieve
-#  ansible.builtin.unarchive:
-#    src:
-#    dest: /tmp
-#    remote_src: yes
-#
-#- name: Copy Node Exporter to /opt
-#  copy:
-#    src: /tmp/node_exporter-1.2.2.linux-amd64
-#    dest: /opt/node_exporter
-#    remote_src: yes
+
 
 
 
