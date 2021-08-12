@@ -9,7 +9,7 @@
 
 - name: Print
   debug:
-    msg: "{{ NODE_EXPORTER_URL | splitext }}"
+    msg: "{{ NODE_EXPORTER_URL | split('/') }}"
 
 
 #- name: Download Prometheus Archieve
