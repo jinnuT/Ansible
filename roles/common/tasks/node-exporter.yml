@@ -6,7 +6,14 @@
 - name: Print
   debug:
     msg: "{{out}}"
-    
+
+- name: Download Prometheus Archieve Extract foo.tgz into /var/lib/foo
+  ansible.builtin.unarchive:
+    src: https://github.com/prometheus/node_exporter/releases/download/v1.2.2/node_exporter-1.2.2.linux-amd64.tar.gz
+    dest: /tmp
+    remote_src: yes
+
+
 #URL=$(curl -L -s https://prometheus.io/download/  | grep tar | grep node_exporter | grep linux-amd64  | sed -e "s|>| |g" -e 's|<|                                                                |g' -e 's|"| |g' |xargs -n1 | grep ^http)
 ##
 ##FILENAME=$(echo $URL | awk -F / '{print $NF}')
