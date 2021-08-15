@@ -30,6 +30,11 @@ resource "aws_ec2_tag" "name-tag-app" {
   resource_id                     = element(aws_spot_instance_request.app-instances.*.spot_instance_id,count.index)
   key                             = "Name"
   value                           = "${element(var.APP_COMPONENTS,count.index)}-${var.ENV}"
+}
+
+resource "aws_ec2_tag" "name-tag-app_monitor" {
+  count                           = local.APP_LENGTH
+  resource_id                     = element(aws_spot_instance_request.app-instances.*.spot_instance_id,count.index)
   key                             = "Monitor"
   value                           = "yes"
 }
