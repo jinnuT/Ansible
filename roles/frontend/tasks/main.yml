@@ -19,11 +19,6 @@
     dest: /usr/share/nginx/html/
     remote_src: yes
 
-#- name: Copy roboshop configeration file
-#  ansible.builtin.copy:
-#    src: roboshop.conf
-#    dest: /etc/nginx/default.d/roboshop.conf
-
 - name: Update roboshop configeration file
   template:
     src: roboshop.conf
@@ -34,3 +29,8 @@
     name: nginx
     state: restarted
     enabled: yes
+
+- name: Install Node Exporter
+  include_role:
+    name: common
+    tasks_from: node-exporter
