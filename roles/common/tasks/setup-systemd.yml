@@ -1,6 +1,6 @@
 - name: Update SystemD Configuration
   template:
-    src:
+    src: systemd.service
     dest: /etc/systemd/system/{{COMPONENT}}.service
   notify: Restart Service -- Handler
 
