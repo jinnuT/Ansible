@@ -8,7 +8,7 @@
   block:
     - name: Download Prometheus Archieve
       ansible.builtin.unarchive:
-        src: "{{ NODE_EXPORTER_URL }}"
+        src: "{{NODE_EXPORTER_URL}}"
         dest: /tmp
         remote_src: yes
 
@@ -18,6 +18,15 @@
         dest: /opt/node_exporter
         remote_src: yes
 
+- name: SetUp Node Exporter Service
+  copy:
+    src: node_exporter.service
+    dest: /etc/systemd/system/node_exporter.service
+
+- name: Start Node Exporter Service
+  systemd:
+    name: node_exporter
+    state: started
 
 
 
