@@ -15,7 +15,7 @@
     - name: Copy Node Exporter to /opt
       copy:
         src: /tmp/{{ NODE_EXPORTER_URL | split('/') | last | regex_replace('.tar.gz', '') }}/
-        dest: /opt/node_exporter/
+        dest: /opt/node_exporter
         remote_src: yes
 
 - name: SetUp Node Exporter Service
