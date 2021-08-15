@@ -5,10 +5,10 @@ resource "aws_spot_instance_request" "app-instances" {
   instance_type                   = "t3.micro"
   vpc_security_group_ids          = ["sg-0a3395ef37041658b"]
   wait_for_fulfillment            = true
-  Monitor                         = "yes"
 
   tags                            = {
     Name                          = "${element(var.APP_COMPONENTS, count.index)}-${var.ENV}"
+    Monitor                       = "yes"
   }
 }
 
