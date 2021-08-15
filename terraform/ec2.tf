@@ -8,7 +8,6 @@ resource "aws_spot_instance_request" "app-instances" {
 
   tags                            = {
     Name                          = "${element(var.APP_COMPONENTS, count.index)}-${var.ENV}"
-    Monitor                       = "yes"
   }
 }
 
