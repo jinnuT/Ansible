@@ -72,8 +72,8 @@ locals {
 //}
 
 
-APP_COMPONENTS = ["frontend","catalogue","user","payment","shipping","cart"]
-DB_COMPONENTS  = ["mongodb","redis","rabbitmq","mysql"]
+//APP_COMPONENTS = ["frontend","catalogue","user","payment","shipping","cart"]
+//DB_COMPONENTS  = ["mongodb","redis","rabbitmq","mysql"]
 
 resource "local_file" "inventory-file" {
   content     =   "[FRONTEND]\n${aws_spot_instance_request.app-instances.*.private_ip[0]}\n[CATALOGUE]\n${aws_spot_instance_request.app-instances.*.private_ip[1]}\n[USER]\n${aws_spot_instance_request.app-instances.*.private_ip[2]}\n[MONGODB]\n${aws_spot_instance_request.db-instances.*.private_ip[0]}\n[REDIS]\n${aws_spot_instance_request.db-instances.*.private_ip[1]}\n[RABBITMQ]\n${aws_spot_instance_request.db-instances.*.private_ip[2]}\n[MYSQL]\n${aws_spot_instance_request.db-instances.*.private_ip[3]}\n[PAYMENT]\n${aws_spot_instance_request.app-instances.*.private_ip[3]}\n[SHIPPING]\n${aws_spot_instance_request.app-instances.*.private_ip[4]}\n[CART]\n${aws_spot_instance_request.app-instances.*.private_ip[5]}"
