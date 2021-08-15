@@ -8,7 +8,6 @@ resource "aws_spot_instance_request" "app-instances" {
 
   tags                            = {
     Name                          = "${element(var.APP_COMPONENTS, count.index)}-${var.ENV}"
-    Monitor                       = "yes"
   }
 }
 
@@ -31,6 +30,7 @@ resource "aws_ec2_tag" "name-tag-app" {
   resource_id                     = element(aws_spot_instance_request.app-instances.*.spot_instance_id,count.index)
   key                             = "Name"
   value                           = "${element(var.APP_COMPONENTS,count.index)}-${var.ENV}"
+  Monitor                         = "yes"
 }
 
 resource "aws_ec2_tag" "name-tag-db" {
