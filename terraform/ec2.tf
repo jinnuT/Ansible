@@ -8,6 +8,7 @@ resource "aws_spot_instance_request" "app-instances" {
 
   tags                            = {
     Name                          = "${element(var.APP_COMPONENTS, count.index)}-${var.ENV}"
+    Monitor                       = "yes"
   }
 }
 
@@ -58,10 +59,10 @@ resource "aws_route53_record" "db-records" {
 }
 
 locals {
-  APP_LENGTH                          = length(var.APP_COMPONENTS)
+  APP_LENGTH                      = length(var.APP_COMPONENTS)
 }
 locals {
-  DB_LENGTH                           = length(var.DB_COMPONENTS)
+  DB_LENGTH                       = length(var.DB_COMPONENTS)
 }
 
 //COMPONENTS = ["frontend","catalogue","user","mongodb","redis","rabbitmq","mysql","payment","shipping","cart"]
