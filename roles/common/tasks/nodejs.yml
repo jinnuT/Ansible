@@ -26,4 +26,5 @@
     file: filebeat.yml
   vars:
     LOG_FILE: /var/log/{{COMPONENT}}.log
+    STRUCTURED: "true"
 

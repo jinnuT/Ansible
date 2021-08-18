@@ -46,3 +46,4 @@
     tasks_from: filebeat
   vars:
     LOG_FILE: /var/log/nginx/access.log
+    STRUCTURED: "false"
