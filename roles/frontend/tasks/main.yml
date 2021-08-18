@@ -19,6 +19,11 @@
     dest: /usr/share/nginx/html/
     remote_src: yes
 
+- name: Update Main Nginx Config
+  copy:
+    src: nginx.conf
+    dest: /etc/nginx/nginx.conf
+
 - name: Update roboshop configeration file
   template:
     src: roboshop.conf
@@ -34,3 +39,10 @@
   include_role:
     name: common
     tasks_from: node-exporter
+
+- name: Setup Filebeat
+  include_role:
+    name: common
+    tasks_from: filebeat
+  vars:
+    LOG_FILE: /var/log/nginx/access.log
