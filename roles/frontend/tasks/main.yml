@@ -29,11 +29,6 @@
     src: roboshop.conf
     dest: /etc/nginx/default.d/roboshop.conf
 
-- name: Restarting Nginx Service
-  ansible.builtin.systemd:
-    name: nginx
-    state: restarted
-    enabled: yes
 
 - name: Install Node Exporter
   include_role:
@@ -47,3 +42,9 @@
   vars:
     LOG_FILE: /var/log/nginx/access.log
     STRUCTURED: "false"
+
+- name: Restarting Nginx Service
+  ansible.builtin.systemd:
+    name: nginx
+    state: restarted
+    enabled: yes
