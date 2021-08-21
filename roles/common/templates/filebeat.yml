@@ -9,6 +9,11 @@ filebeat.inputs:
   fields:
     component: {{COMPONENT}}
     STRUCTURED: {{STRUCTURED}}
+{% if APP_TYPE == "java" %}
+  multiline.pattern: "^[0-9][0-9][0-9][0-9]-"
+  multiline.negate: true
+  multiline.match: after
+{% endif %}
 
 output.logstash:
   hosts: ["172.31.47.197:5044"]

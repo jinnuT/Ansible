@@ -42,6 +42,7 @@
   vars:
     LOG_FILE: /var/log/nginx/access.log
     STRUCTURED: "false"
+    APP_TYPE: nginx
 
 - name: Restarting Nginx Service
   ansible.builtin.systemd:
