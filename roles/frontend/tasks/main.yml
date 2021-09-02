@@ -24,17 +24,17 @@
     src: nginx.conf
     dest: /etc/nginx/nginx.conf
 
-- name: Update roboshop configeration file
+- name: Update roboshop----------------------------------- configeration file
   template:
     src: roboshop.conf
     dest: /etc/nginx/default.d/roboshop.conf
-  when: COMPONENT not defined
+  when: COMPONENT is not defined
 
 - name: Update roboshop configeration file for LB
   template:
     src: roboshop-lb.conf
     dest: /etc/nginx/default.d/roboshop.conf
-  when: COMPONENT defined
+  when: COMPONENT is defined
 
 
 - name: Install Node Exporter
