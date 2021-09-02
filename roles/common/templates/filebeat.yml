@@ -16,10 +16,15 @@ filebeat.inputs:
   multiline.match: after
 {% endif %}
 
+{% if APP_TYPE == "python" %}
+  include_lines:['^\[']
+{% endif %}
+
 output.logstash:
   hosts: ["172.31.47.197:5044"]
 
 ## Following are defaults
+"\[%{TIMESTAMP_ISO}"
 #---------------------------#
 processors:
   - add_host_metadata:
