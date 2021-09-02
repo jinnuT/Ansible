@@ -24,13 +24,13 @@
     src: nginx.conf
     dest: /etc/nginx/nginx.conf
 
-- name: Update roboshop----------------------------------- configeration file
+- name: Update roboshop configuration file
   template:
     src: roboshop.conf
     dest: /etc/nginx/default.d/roboshop.conf
   when: COMPONENT is not defined
 
-- name: Update roboshop configeration file for LB
+- name: Update roboshop configuration file for LB
   template:
     src: roboshop-lb.conf
     dest: /etc/nginx/default.d/roboshop.conf
