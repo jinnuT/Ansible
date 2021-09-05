@@ -18,6 +18,20 @@
     src: /tmp/frontend-main/static/
     dest: /usr/share/nginx/html/
     remote_src: yes
+  when: APP_VERSION is not defined
+
+- name: Create App Code Dir
+  file:
+    path: /usr/share/nginx/html/
+    state: directory
+  when: APP_VERSION is defined
+
+- name: Download and Extract Content
+  ansible.builtin.unarchive:
+    src: http://172.31.10.19:8081/repository/{{COMPONENT}}/{{COMPONENT}}-{{APP_VERSION}}.zip
+    dest: /usr/share/nginx/html/
+    remote_src: yes
+  when: APP_VERSION is defined
 
 - name: Update Main Nginx Config
   copy:

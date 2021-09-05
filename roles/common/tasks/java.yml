@@ -10,7 +10,8 @@
 - name: Compile the Packages
   shell: mvn clean package && mv target/shipping-1.0.jar shipping.jar 
   args:
-      chdir: /home/roboshop/{{COMPONENT}}
+    chdir: /home/roboshop/{{COMPONENT}}
+  when: APP_VERSION is not defined
       
 - name: Acessing Setup-SystemD
   include_tasks:
