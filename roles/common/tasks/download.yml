@@ -1,22 +1,20 @@
-
 - name: Add RoboShop Application User
   ansible.builtin.user:
     name: roboshop
   register: app_user
-
-- name: Again Bypassing Download from github
-  include_tasks:
-    file: download-from-github.yml
 
 - name: Delete Old App Code
   file:
     path: /home/roboshop/{{COMPONENT}}/
     state: absent
 
-- name: Copy the extracted content
-  copy:
-    src: /tmp/{{COMPONENT}}-main/
-    dest: /home/roboshop/{{COMPONENT}}/
-    remote_src: yes
-    owner: roboshop
-    group: roboshop
+- name: Download from github
+  include_tasks:
+    file: download-from-github.yml
+  when: APP_VERSION is not defined
+
+
+- name: Download from Nexus
+  include_tasks:
+    file: download-from-nexus.yml
+  when: APP_VERSION is defined

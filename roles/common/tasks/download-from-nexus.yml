@@ -1,5 +1,10 @@
+- name: Create App Code Dir
+  file:
+    path: /home/roboshop/{{COMPONENT}}/
+    state: directory
+
 - name: Download and Extract Content
   ansible.builtin.unarchive:
-    src: http://172.31.10.19:8081/repository/{{COMPONENT}}/{{COMPONENT}}-{{APP_VERSION}}
-    dest: /tmp
+    src: http://172.31.10.19:8081/repository/{{COMPONENT}}/{{COMPONENT}}-{{APP_VERSION}}.zip
+    dest: /home/roboshop/{{COMPONENT}}
     remote_src: yes
